@@ -418,7 +418,7 @@ export default function CustomerPage({ params }: PageProps) {
                       />
                       <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors" />
                     </div>
-                    <p className="text-xs text-muted-foreground font-medium text-center truncate px-1">
+                    <p className="text-xs font-serif text-muted-foreground font-medium text-center truncate px-1">
                       {photo.caption}
                     </p>
                   </div>
