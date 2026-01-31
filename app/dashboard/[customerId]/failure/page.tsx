@@ -14,26 +14,19 @@ interface PageProps {
 export default function FailurePage({ params }: PageProps) {
   const { customerId } = use(params);
   const router = useRouter();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const customer = getCustomer(customerId);
 
   useEffect(() => {
-    const auth = sessionStorage.getItem("valentine-auth");
-    if (auth !== "true") {
-      router.push("/");
-    } else {
-      setIsAuthenticated(true);
-    }
     setIsLoading(false);
-  }, [router]);
+  }, []);
 
   if (!customer) {
     notFound();
   }
 
-  if (isLoading || !isAuthenticated) {
+  if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="flex items-center gap-2">

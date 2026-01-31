@@ -16,9 +16,8 @@ const MAX_ATTEMPTS = 3;
 export default function QuizPage({ params }: PageProps) {
   const { customerId } = use(params);
   const router = useRouter();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   // Quiz state
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<(number | null)[]>([]);
@@ -30,19 +29,10 @@ export default function QuizPage({ params }: PageProps) {
   const customer = getCustomer(customerId);
 
   useEffect(() => {
-    const auth = sessionStorage.getItem("valentine-auth");
-    if (auth !== "true") {
-      router.push("/");
-    } else {
-      setIsAuthenticated(true);
-    }
-    setIsLoading(false);
-  }, [router]);
-
-  useEffect(() => {
     if (customerData) {
       setAnswers(new Array(customerData.quiz.length).fill(null));
     }
+    setIsLoading(false);
   }, [customerData]);
 
   if (!customerData || !customer) {
@@ -80,7 +70,7 @@ export default function QuizPage({ params }: PageProps) {
       // Some wrong
       const newAttempts = attempts - 1;
       setAttempts(newAttempts);
-      
+
       if (newAttempts <= 0) {
         // No more attempts - redirect to failure
         router.push(`/dashboard/${customerId}/failure`);
@@ -97,7 +87,7 @@ export default function QuizPage({ params }: PageProps) {
     setWrongAnswers([]);
   };
 
-  if (isLoading || !isAuthenticated) {
+  if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="flex items-center gap-2">
@@ -134,9 +124,8 @@ export default function QuizPage({ params }: PageProps) {
             {[...Array(MAX_ATTEMPTS)].map((_, i) => (
               <Heart
                 key={i}
-                className={`w-4 h-4 ${
-                  i < attempts ? "text-primary" : "text-muted"
-                }`}
+                className={`w-4 h-4 ${i < attempts ? "text-primary" : "text-muted"
+                  }`}
                 fill={i < attempts ? "currentColor" : "none"}
               />
             ))}
@@ -175,19 +164,17 @@ export default function QuizPage({ params }: PageProps) {
                   <button
                     key={index}
                     onClick={() => handleAnswer(index)}
-                    className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 ${
-                      answers[currentQuestion] === index
-                        ? "border-primary bg-primary/10 text-foreground"
-                        : "border-border bg-background hover:border-primary/50 text-foreground"
-                    }`}
+                    className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 ${answers[currentQuestion] === index
+                      ? "border-primary bg-primary/10 text-foreground"
+                      : "border-border bg-background hover:border-primary/50 text-foreground"
+                      }`}
                   >
                     <span className="flex items-center gap-3">
                       <span
-                        className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-sm font-medium ${
-                          answers[currentQuestion] === index
-                            ? "border-primary bg-primary text-primary-foreground"
-                            : "border-muted-foreground text-muted-foreground"
-                        }`}
+                        className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-sm font-medium ${answers[currentQuestion] === index
+                          ? "border-primary bg-primary text-primary-foreground"
+                          : "border-muted-foreground text-muted-foreground"
+                          }`}
                       >
                         {String.fromCharCode(65 + index)}
                       </span>
@@ -235,13 +222,12 @@ export default function QuizPage({ params }: PageProps) {
                 <button
                   key={index}
                   onClick={() => setCurrentQuestion(index)}
-                  className={`w-8 h-8 rounded-full text-xs font-medium transition-all ${
-                    currentQuestion === index
-                      ? "bg-primary text-primary-foreground"
-                      : answers[index] !== null
+                  className={`w-8 h-8 rounded-full text-xs font-medium transition-all ${currentQuestion === index
+                    ? "bg-primary text-primary-foreground"
+                    : answers[index] !== null
                       ? "bg-primary/20 text-primary"
                       : "bg-muted text-muted-foreground"
-                  }`}
+                    }`}
                 >
                   {index + 1}
                 </button>
