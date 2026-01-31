@@ -103,18 +103,6 @@ export default function QuizPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-background relative">
-      {/* Back button */}
-      <div className="absolute top-4 left-4 z-50">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => router.push(`/dashboard/${customerId}`)}
-          className="text-muted-foreground hover:text-foreground"
-        >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Envelope
-        </Button>
-      </div>
 
       {/* Attempts indicator */}
       <div className="absolute top-4 right-4 z-50">

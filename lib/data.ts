@@ -68,14 +68,14 @@ export const customerData: Record<string, CustomerData> = {
       spotifyUrl: "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v"
     },
     photos: [
-      { id: 1, src: "/images/photo-1.jpg", caption: "Our first date" },
-      { id: 2, src: "/images/photo-2.jpg", caption: "Beach sunset" },
-      { id: 3, src: "/images/photo-3.jpg", caption: "Coffee mornings" },
-      { id: 4, src: "/images/photo-4.jpg", caption: "Adventure time" },
-      { id: 5, src: "/images/photo-5.jpg", caption: "Stargazing" },
-      { id: 6, src: "/images/photo-6.jpg", caption: "Cooking together" },
-      { id: 7, src: "/images/photo-7.jpg", caption: "Movie nights" },
-      { id: 8, src: "/images/photo-8.jpg", caption: "Forever us" }
+      { id: 1, src: "/jooo.jpg", caption: "Our first date" },
+      { id: 2, src: "/jooo.jpg", caption: "Beach sunset" },
+      { id: 3, src: "/jooo.jpg", caption: "Coffee mornings" },
+      { id: 4, src: "/jooo.jpg", caption: "Adventure time" },
+      { id: 5, src: "/jooo.jpg", caption: "Stargazing" },
+      { id: 6, src: "/jooo.jpg", caption: "Cooking together" },
+      { id: 7, src: "/jooo.jpg", caption: "Movie nights" },
+      { id: 8, src: "/jooo.jpg", caption: "Forever us" }
     ],
     quiz: [
       {
@@ -159,14 +159,14 @@ export const customerData: Record<string, CustomerData> = {
       spotifyUrl: "https://open.spotify.com/track/3U4isOIWM3VvDubwSI3y7a"
     },
     photos: [
-      { id: 1, src: "/public/jooo.png", caption: "Sweet memories" },
-      { id: 2, src: "/public/jooo.png", caption: "Together" },
-      { id: 3, src: "/public/jooo.png", caption: "Happy days" },
-      { id: 4, src: "/public/jooo.png", caption: "Us" },
-      { id: 5, src: "/public/jooo.png", caption: "Love" },
-      { id: 6, src: "/public/jooo.png", caption: "Joy" },
-      { id: 7, src: "/images/photo-7.jpg", caption: "Bliss" },
-      { id: 8, src: "/images/photo-8.jpg", caption: "Always" }
+      { id: 1, src: "/jooo.jpg", caption: "Sweet memories" },
+      { id: 2, src: "/jooo.jpg", caption: "Together" },
+      { id: 3, src: "/jooo.jpg", caption: "Happy days" },
+      { id: 4, src: "/jooo.jpg", caption: "Us" },
+      { id: 5, src: "/jooo.jpg", caption: "Love" },
+      { id: 6, src: "/jooo.jpg", caption: "Joy" },
+      { id: 7, src: "/jooo.jpg", caption: "Bliss" },
+      { id: 8, src: "/jooo.jpg", caption: "Always" }
     ],
     quiz: [
       {
@@ -250,14 +250,14 @@ export const customerData: Record<string, CustomerData> = {
       spotifyUrl: "https://open.spotify.com/track/6lanRgr6wXibZr8KgzXxBl"
     },
     photos: [
-      { id: 1, src: "/images/photo-1.jpg", caption: "Destiny" },
-      { id: 2, src: "/images/photo-2.jpg", caption: "Soulmates" },
-      { id: 3, src: "/images/photo-3.jpg", caption: "Eternal" },
-      { id: 4, src: "/images/photo-4.jpg", caption: "Infinite" },
-      { id: 5, src: "/images/photo-5.jpg", caption: "Timeless" },
-      { id: 6, src: "/images/photo-6.jpg", caption: "Precious" },
-      { id: 7, src: "/images/photo-7.jpg", caption: "Magical" },
-      { id: 8, src: "/images/photo-8.jpg", caption: "Forever" }
+      { id: 1, src: "/jooo.jpg", caption: "Destiny" },
+      { id: 2, src: "/jooo.jpg", caption: "Soulmates" },
+      { id: 3, src: "/jooo.jpg", caption: "Eternal" },
+      { id: 4, src: "/jooo.jpg", caption: "Infinite" },
+      { id: 5, src: "/jooo.jpg", caption: "Timeless" },
+      { id: 6, src: "/jooo.jpg", caption: "Precious" },
+      { id: 7, src: "/jooo.jpg", caption: "Magical" },
+      { id: 8, src: "/jooo.jpg", caption: "Forever" }
     ],
     quiz: [
       {

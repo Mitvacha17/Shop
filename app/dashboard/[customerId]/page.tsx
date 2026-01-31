@@ -84,19 +84,7 @@ export default function CustomerPage({ params }: PageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-background relative overflow-hidden">
-      {/* Back button */}
-      <div className="absolute top-4 left-4 z-50">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => router.push("/dashboard")}
-          className="text-muted-foreground hover:text-foreground"
-        >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back
-        </Button>
-      </div>
+    <main className="min-h-screen bg-linear-to-br from-background via-rose-50/50 to-lavender-50/30 relative overflow-hidden">
 
       {/* Main content */}
       <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16">
@@ -249,7 +237,7 @@ export default function CustomerPage({ params }: PageProps) {
             <div className="relative bg-secondary/30 overflow-y-auto max-h-[80vh]">
               {/* Close button */}
               <button
-                onClick={handleCloseLetter}
+                onClick={handleCloseLetter} 
                 className="absolute top-2 right-2 p-2 rounded-full hover:bg-muted transition-colors z-10"
               >
                 <X className="w-5 h-5 text-muted-foreground" />
@@ -330,7 +318,7 @@ export default function CustomerPage({ params }: PageProps) {
                 <div className="absolute inset-0 rounded-full bg-primary/20 animate-pulse-slow" />
 
                 {/* Vinyl record */}
-                <div className="absolute inset-2 rounded-full bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 animate-spin-slow shadow-xl">
+                <div className="absolute inset-2 rounded-full bg-linear-to-br from-neutral-900 via-neutral-800 to-neutral-900 animate-spin-slow shadow-xl">
                   {/* Vinyl grooves */}
                   <div className="absolute inset-3 rounded-full border border-neutral-700/50" />
                   <div className="absolute inset-6 rounded-full border border-neutral-700/40" />
@@ -338,7 +326,7 @@ export default function CustomerPage({ params }: PageProps) {
                   <div className="absolute inset-12 rounded-full border border-neutral-700/20" />
 
                   {/* Center label */}
-                  <div className="absolute inset-[35%] rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-inner">
+                  <div className="absolute inset-[35%] rounded-full bg-linear-to-br from-primary to-primary/80 flex items-center justify-center shadow-inner">
                     <Heart className="w-6 h-6 text-primary-foreground" fill="currentColor" />
                   </div>
                 </div>
@@ -376,7 +364,7 @@ export default function CustomerPage({ params }: PageProps) {
 
             {/* Bottom section */}
             <div className="p-6 pt-0 space-y-4">
-              <p className="text-muted-foreground text-sm text-center italic font-cursive text-base">
+              <p className="text-muted-foreground text-sm text-center italic font-cursive">
                 {"\""}This song reminds me of you and all our beautiful moments together{"\""}
               </p>
 
@@ -414,24 +402,26 @@ export default function CustomerPage({ params }: PageProps) {
             </div>
 
             {/* Photo grid */}
-            <div className="p-4 overflow-hidden max-h-[calc(85vh-80px)]">
+            <div className="p-4 overflow-y-auto max-h-[calc(85vh-80px)]">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {customerData.photos.map((photo) => (
-                  <button
+                  <div
                     key={photo.id}
                     onClick={() => setSelectedPhoto(photo.id)}
-                    className="group relative aspect-square rounded-xl overflow-hidden bg-muted hover:ring-2 hover:ring-primary transition-all"
+                    className="flex flex-col gap-2 cursor-pointer group"
                   >
-                    <div className="absolute inset-0 bg-primary/10 flex items-center justify-center">
-
+                    <div className="relative aspect-square rounded-xl overflow-hidden bg-linear-to-br from-rose-100/50 to-lavender-100/50 hover:ring-2 hover:ring-primary transition-all shadow-md">
+                      <img
+                        src={photo.src}
+                        alt={photo.caption}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors" />
                     </div>
-                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors" />
-                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-foreground/60 backdrop-blur-sm">
-                      <p className="text-sm text-card truncate">
-                        {photo.caption}
-                      </p>
-                    </div>
-                  </button>
+                    <p className="text-xs text-muted-foreground font-medium text-center truncate px-1">
+                      {photo.caption}
+                    </p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -457,17 +447,26 @@ export default function CustomerPage({ params }: PageProps) {
               <X className="w-6 h-6 text-card" />
             </button>
 
-            {/* Image placeholder */}
-            <div className="aspect-video rounded-2xl overflow-hidden bg-muted flex items-center justify-center">
-              <div className="text-center p-8">
-                <Camera className="w-16 h-16 text-primary/40 mx-auto mb-4" />
-                <p className="text-xl font-serif text-foreground">
-                  {
-                    customerData.photos.find((p) => p.id === selectedPhoto)
-                      ?.caption
-                  }
-                </p>
+            {/* Image display */}
+            <div className="flex flex-col items-center justify-center relative max-h-[85vh]">
+              <div className="relative group">
+                <img
+                  src={customerData.photos.find((p) => p.id === selectedPhoto)?.src}
+                  alt={customerData.photos.find((p) => p.id === selectedPhoto)?.caption}
+                  className="max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl border-4 border-card/10"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-foreground/60 backdrop-blur-md rounded-b-xl text-center transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <p className="text-lg font-serif text-card">
+                    {
+                      customerData.photos.find((p) => p.id === selectedPhoto)
+                        ?.caption
+                    }
+                  </p>
+                </div>
               </div>
+              <p className="mt-4 text-card/80 text-sm font-medium bg-foreground/20 px-4 py-2 rounded-full backdrop-blur-sm group-hover:opacity-0 transition-opacity">
+                {customerData.photos.find((p) => p.id === selectedPhoto)?.caption}
+              </p>
             </div>
           </div>
         </div>

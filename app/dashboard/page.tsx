@@ -61,7 +61,7 @@ export default function DashboardPage() {
 
   if (!isAuthenticated) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-background relative overflow-hidden">
+      <main className="min-h-screen flex items-center justify-center bg-linear-to-br from-background via-rose-50/50 to-lavender-50/30 relative overflow-hidden">
         {/* Decorative floating hearts */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(12)].map((_, i) => (
