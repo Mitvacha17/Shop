@@ -159,14 +159,14 @@ export const customerData: Record<string, CustomerData> = {
       spotifyUrl: "https://open.spotify.com/track/3U4isOIWM3VvDubwSI3y7a"
     },
     photos: [
-      { id: 1, src: "/ff.jpeg", caption: "Sweet memories" },
-      { id: 2, src: "/gg.jpeg", caption: "Together" },
-      { id: 3, src: "/hh.jpeg", caption: "Happy days" },
-      { id: 4, src: "/j.jpeg", caption: "Us" },
-      { id: 5, src: "/ja.jpeg", caption: "Love" },
-      { id: 6, src: "/kk.jpeg", caption: "Joy" },
-      { id: 7, src: "/mm.jpeg", caption: "Bliss" },
-      { id: 8, src: "/oo.jpeg", caption: "Always" }
+      { id: 1, src: "/p1.jpeg", caption: "Sweet memories" },
+      { id: 2, src: "/p2.jpeg", caption: "Together" },
+      { id: 3, src: "/p3.jpeg", caption: "Happy days" },
+      { id: 4, src: "/p4.jpeg", caption: "Us" },
+      { id: 5, src: "/p5.jpeg", caption: "Love" },
+      { id: 6, src: "/p6.jpeg", caption: "Joy" },
+      { id: 7, src: "/p7.jpeg", caption: "Bliss" },
+      { id: 8, src: "/p8.jpeg", caption: "Always" }
     ],
     quiz: [
       {

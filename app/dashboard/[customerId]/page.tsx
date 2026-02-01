@@ -237,14 +237,14 @@ export default function CustomerPage({ params }: PageProps) {
             <div className="relative bg-secondary/30 overflow-y-auto max-h-[80vh]">
               {/* Close button */}
               <button
-                onClick={handleCloseLetter} 
+                onClick={handleCloseLetter}
                 className="absolute top-2 right-2 p-2 rounded-full hover:bg-muted transition-colors z-10"
               >
                 <X className="w-5 h-5 text-muted-foreground" />
               </button>
 
               {/* Decorative border wrapper */}
-              <div className="m-3 md:m-4 border-2 border-primary/20 rounded-lg">
+              <div className="m-3 md:m-4">
                 {/* Letter content */}
                 <div className="p-5 md:p-8 space-y-6">
                   <p className="font-cursive text-2xl text-primary">
@@ -453,18 +453,10 @@ export default function CustomerPage({ params }: PageProps) {
                 <img
                   src={customerData.photos.find((p) => p.id === selectedPhoto)?.src}
                   alt={customerData.photos.find((p) => p.id === selectedPhoto)?.caption}
-                  className="max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl border-4 border-card/10"
+                  className="max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-foreground/60 backdrop-blur-md rounded-b-xl text-center transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <p className="text-lg font-serif text-card">
-                    {
-                      customerData.photos.find((p) => p.id === selectedPhoto)
-                        ?.caption
-                    }
-                  </p>
-                </div>
               </div>
-              <p className="mt-4 text-card/80 text-sm font-medium bg-foreground/20 px-4 py-2 rounded-full backdrop-blur-sm group-hover:opacity-0 transition-opacity">
+              <p className="mt-4 text-card/80 text-sm font-medium bg-foreground/20 px-4 py-2 rounded-full backdrop-blur-sm transition-opacity">
                 {customerData.photos.find((p) => p.id === selectedPhoto)?.caption}
               </p>
             </div>
