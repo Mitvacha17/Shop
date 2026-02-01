@@ -102,7 +102,7 @@ export default function QuizPage({ params }: PageProps) {
   const allAnswered = answers.every((a) => a !== null);
 
   return (
-    <main className="min-h-screen bg-background relative">
+    <main className="min-h-screen bg-background relative font-lao">
 
       {/* Attempts indicator */}
       <div className="absolute top-4 right-4 z-50">
@@ -142,7 +142,7 @@ export default function QuizPage({ params }: PageProps) {
 
             {/* Question card */}
             <div className="bg-card rounded-2xl shadow-xl border border-border p-8 md:p-10 max-w-xl w-full">
-              <h2 className="text-xl md:text-2xl font-serif text-foreground text-center mb-8">
+              <h2 className="text-xl md:text-2xl text-foreground text-center mb-8">
                 {currentQuestionData.question}
               </h2>
 
@@ -229,7 +229,7 @@ export default function QuizPage({ params }: PageProps) {
               <div className="w-16 h-16 mx-auto rounded-full bg-destructive/10 flex items-center justify-center mb-4">
                 <X className="w-8 h-8 text-destructive" />
               </div>
-              <h2 className="text-2xl font-serif text-foreground mb-2">
+              <h2 className="text-2xl text-foreground mb-2">
                 Not quite right!
               </h2>
               <p className="text-muted-foreground">

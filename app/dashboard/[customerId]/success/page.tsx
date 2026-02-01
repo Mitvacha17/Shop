@@ -3,7 +3,7 @@
 import { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
 import { Heart, PartyPopper, Sparkles, ArrowLeft } from "lucide-react";
-import { getCustomer } from "@/lib/data";
+import { getCustomer, getCustomerData } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
 
@@ -59,6 +59,7 @@ export default function SuccessPage({ params }: PageProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   const customer = getCustomer(customerId);
+  const data = getCustomerData(customerId);
 
   useEffect(() => {
     setIsLoading(false);
@@ -83,7 +84,7 @@ export default function SuccessPage({ params }: PageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-background relative overflow-hidden">
+    <main className="min-h-screen bg-background relative overflow-hidden font-lao">
       {/* Confetti */}
       <Confetti />
 
@@ -123,15 +124,14 @@ export default function SuccessPage({ params }: PageProps) {
           </div>
 
           {/* Message */}
-          <h1 className="text-3xl md:text-4xl font-serif text-foreground mb-4">
-            You Did It!
+          <h1 className="text-3xl md:text-4xl text-foreground mb-4">
+            {data?.successMessage.title || "You Did It!"}
           </h1>
           <p className="text-xl text-muted-foreground mb-2">
-            Perfect Score!
+            {data?.successMessage.subtitle || "Perfect Score!"}
           </p>
           <p className="text-muted-foreground mb-8">
-            You really do know me so well, {customer.displayName}. This proves
-            just how special our connection is.
+            {data?.successMessage.description || `You really do know me so well, ${customer.displayName}. This proves just how special our connection is.`}
           </p>
 
           {/* Decorative hearts */}
@@ -148,8 +148,8 @@ export default function SuccessPage({ params }: PageProps) {
 
           {/* Love message */}
           <div className="bg-primary/5 rounded-2xl p-6 mb-8 border border-primary/20">
-            <p className="font-cursive text-2xl text-primary mb-2">
-              I love you more than words can say
+            <p className="text-2xl text-primary mb-2">
+              {data?.successMessage.note || "I love you more than words can say"}
             </p>
             <p className="text-muted-foreground text-sm">
               Thank you for being my everything

@@ -40,11 +40,23 @@ export interface CustomerData {
   song: Song;
   photos: Photo[];
   quiz: QuizQuestion[];
+  successMessage: {
+    title: string;
+    subtitle: string;
+    description: string;
+    note: string;
+  };
+  failureMessage: {
+    title: string;
+    subtitle: string;
+    description: string;
+    note: string;
+  };
 }
 
 export const customers: Customer[] = [
   { id: "jaja", name: "jaja", displayName: "Jaja" },
-  { id: "baby", name: "baby", displayName: "My Baby" },
+  { id: "phout", name: "phout", displayName: "Phout" },
   { id: "love", name: "love", displayName: "My Love" },
 ];
 
@@ -138,9 +150,21 @@ export const customerData: Record<string, CustomerData> = {
         options: ["A lot", "So much", "More than words can say", "To infinity and beyond"],
         correctAnswer: 3
       }
-    ]
+    ],
+    successMessage: {
+      title: "You Did It!",
+      subtitle: "Perfect Score!",
+      description: "You really do know me so well, Jaja. This proves just how special our connection is.",
+      note: "I love you more than words can say"
+    },
+    failureMessage: {
+      title: "Oh No!",
+      subtitle: "All attempts used",
+      description: "Don't worry, Jaja. This doesn't change how much I love you. Maybe we need to spend more time together making new memories!",
+      note: "Love isn't about perfect scores, it's about perfect moments"
+    }
   },
-  baby: {
+  phout: {
     letter: {
       greeting: "My Precious Baby,",
       body: [
@@ -153,10 +177,10 @@ export const customerData: Record<string, CustomerData> = {
       signature: "Your forever love"
     },
     song: {
-      title: "All of Me",
-      artist: "John Legend",
+      title: "จี่หอย",
+      artist: "P Saderd",
       coverImage: "/images/song-cover.jpg",
-      spotifyUrl: "https://open.spotify.com/track/3U4isOIWM3VvDubwSI3y7a"
+      spotifyUrl: "https://open.spotify.com/track/53e5c8UIvZ44Xu2EiFrJK9?si=WB3kNSiARga_44Ay42zpbQ&nd=1&dlsi=cf4e334ea28d44c3"
     },
     photos: [
       { id: 1, src: "/p1.jpeg", caption: "Sweet memories" },
@@ -171,65 +195,77 @@ export const customerData: Record<string, CustomerData> = {
     quiz: [
       {
         id: 1,
-        question: "What was our first date activity?",
-        options: ["Dinner", "Movie", "Walk in the park", "Coffee"],
-        correctAnswer: 2
+        question: "ວັນເກີດນຸ້ນຄືວັນຫຍັງ?",
+        options: ["ວັນອາທິດ", "ວັນຈັນ", "ວັນອັງຄານ", "ວັນພຸດ"],
+        correctAnswer: 0
       },
       {
         id: 2,
-        question: "What is my favorite dessert?",
-        options: ["Chocolate cake", "Ice cream", "Cheesecake", "Tiramisu"],
-        correctAnswer: 0
+        question: "ວັນເກີດປູນາຄືວັນຫຍັງ?",
+        options: ["ວັນອາທິດ", "ວັນຈັນ", "ວັນອັງຄານ", "ວັນພຸດ"],
+        correctAnswer: 2
       },
       {
         id: 3,
-        question: "What do I love most about weekends?",
-        options: ["Sleeping in", "Being with you", "Relaxing", "Adventures"],
-        correctAnswer: 1
+        question: "ເຮົາເລີ່ມຮູ້ຫລີ້ນນຳກັນມາໄດ້ຈັກປີລະ?",
+        options: ["4 ປີ", "5 ປີ", "6 ປີ", "7 ປີ"],
+        correctAnswer: 3
       },
       {
         id: 4,
-        question: "What is my favorite season?",
-        options: ["Spring", "Summer", "Autumn", "Winter"],
-        correctAnswer: 0
+        question: "ນຸ້ນມັກສີຫຍັງ?",
+        options: ["ສີແດງ", "ສີບົວ", "ສີທອງ", "ສີຟ້າ"],
+        correctAnswer: 3
       },
       {
         id: 5,
-        question: "What color reminds me of our love?",
-        options: ["Red", "Pink", "Gold", "All warm colors"],
-        correctAnswer: 3
+        question: "ປູນາມີແຟນມາແລ້ວຈັກຄົນ?",
+        options: ["1", "2", "3", "4"],
+        correctAnswer: 0
       },
       {
         id: 6,
-        question: "What is my favorite thing to do together?",
-        options: ["Travel", "Cook", "Watch sunsets", "Everything"],
-        correctAnswer: 3
+        question: "ປູນາກັບນຸ້ນເປັນຄົນແບບໃດ?(ເລືອກເອົາຄຳຕອບທີ່ມີທັ້ງ2ຄົນ)",
+        options: ["ຮ້າຍເກັ່ງ", "ຈິງໃຈ", "ເວົ້າມ່ວນ", "ຂີ້ຮ້າຍ"],
+        correctAnswer: 1
       },
       {
         id: 7,
-        question: "What is my love language?",
-        options: ["Words", "Touch", "Time", "Acts of service"],
+        question: "ຊື່ກຸ່ມ messager ເຮົາຊື່ວ່າ?",
+        options: ["3ໜໍ່", "3P", "JPN", "ໂສດ2ມີແຟນ1"],
         correctAnswer: 2
       },
       {
         id: 8,
-        question: "What animal represents our love?",
-        options: ["Swans", "Doves", "Butterflies", "Lovebirds"],
-        correctAnswer: 0
+        question: "ປູນາມັກກິນຫຍັງຕອນກິນດາດ?",
+        options: ["ສາມຊັ້ນ", "ນົມໝູ", "ເຫັດ", "ຜັກ"],
+        correctAnswer: 1
       },
       {
         id: 9,
-        question: "What is my favorite memory with you?",
-        options: ["First meeting", "First kiss", "First trip", "Every moment"],
-        correctAnswer: 3
+        question: "ນຸ້ນມັກກິນຕຳບໍ່?",
+        options: ["ມັກແຕ່ບໍ່ກິນ", "ບໍ່ມັກແຕ່ກິນໄດ້", "ບໍ່ມັກບໍ່ມັກກິນເລີຍແພ້", "ມັມັກກິນ"],
+        correctAnswer: 2
       },
       {
         id: 10,
-        question: "Will you be my Valentine forever?",
-        options: ["Yes", "Absolutely", "Of course", "All of the above"],
-        correctAnswer: 3
+        question: "ວັນເກີດນຸ້ນມື້ໃດ?",
+        options: ["13/6/2003", "16/3/2004", "13/6/2004", "16/6/2006"],
+        correctAnswer: 2
       }
-    ]
+    ],
+    successMessage: {
+      title: "ເກັ່ງມາກ!",
+      subtitle: "ຄະແນນເຕັມເລີຍ!",
+      description: "Happy birthday ຍ້ອນຫຼັງເດີສາວປີນີ້ກູອາດຈະມາຊ້າແຕ່ມານະອັນນີ້ກູຕັ້ງໃຫ້ເຮັດໃຫ້ມຶງເລີຍລະຮອບແລກເລີຍມັ້ງທີ່ໃຫ້ແບບນີ້ດູມີອະໄຣທຳໄມດີ ເຖິງກູສິບໍ່ຄ່ອຍປາກບໍ່ຄ່ອຍໄປໃສ ບໍ່ອ່ານກຸ່ມ ບໍ່ຄ່ອຍມີເວລາໃຫ້ສູແຕ່ກູກະຍັງຈິງໃຈນຳສູຄືເດົ່າເດີ້ມີບັນຫາກູກະຮັບຟັງຄືເກົ່າ ກູຮູ້ວ່າສູກະນ໊ອຍກູແຍ່ແຫລະທີ່ດຽວນີ້ກູມີແຟນລະບໍ່ໄປໃສນຳສູເລີຍໝັ້ນໄສ້ກູລະສິແຕ່ຊ່ວຍໄມ່ໄດ້ເດະແນວກູຮັກແຟນ5555(ຂິງແປບ)",
+      note: "ອ່ານຮອດນີ້ບໍ່ມີຫຍັງຫລາຍຕັ້ງໃຈໃຊ້ຊີວິດເດີ້ລູກມີຫຍັງກະມາປຶກສາໄດ້ຕະຫລອດສິຮັບຟັງເອງເຖິງສິປາກຫມາແຕ່ກະຈິງໃຈເດີ້ ຂໍໃຫ້ມີຄວາມສຸກນ້າາ👀"
+    },
+    failureMessage: {
+      title: "ໂອ້ຍຍຍ!",
+      subtitle: "ມຶງບໍ່ໃສ່ໃຈພວກກູແມ້🫶🏻😔",
+      description: "ບໍ່ຕ້ອງເສຍໃຈເດີ້, Phout. ນີ້ບໍ່ໄດ້ເຮັດໃຫ້ຄວາມຮັກທີ່ຂ້ອຍມີຕໍ່ເຈົ້າຫລຸດລົງເລີຍ. ບາງທີເຮົາອາດຈະຕ້ອງໃຊ້ເວລາຮ່ວມກັນຫລາຍຂຶ້ນ!",
+      note: "ຄວາມຮັກບໍ່ແມ່ນເລື່ອງຂອງຄະແນນ, ແຕ່ແມ່ນເລື່ອງຂອງຊ່ວງເວລາທີ່ດີ"
+    }
   },
   love: {
     letter: {
@@ -320,7 +356,19 @@ export const customerData: Record<string, CustomerData> = {
         options: ["Yes!", "Definitely!", "Absolutely!", "Yes, yes, and yes!"],
         correctAnswer: 3
       }
-    ]
+    ],
+    successMessage: {
+      title: "Amazing, My Love!",
+      subtitle: "A Perfect 10!",
+      description: "I never doubted you for a second. You know my heart better than anyone else in this world.",
+      note: "You are the best thing that ever happened to me"
+    },
+    failureMessage: {
+      title: "It's Okay, Sweetheart!",
+      subtitle: "Love is the only score that matters",
+      description: "Even if you didn't get them all right, you're still the only one for me. Let's make more memories together!",
+      note: "I love you forever and always"
+    }
   }
 };
 

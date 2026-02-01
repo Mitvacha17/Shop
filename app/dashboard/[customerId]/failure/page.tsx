@@ -3,7 +3,7 @@
 import { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
 import { Heart, HeartCrack, Frown, ArrowLeft, RotateCcw } from "lucide-react";
-import { getCustomer } from "@/lib/data";
+import { getCustomer, getCustomerData } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
 
@@ -17,6 +17,7 @@ export default function FailurePage({ params }: PageProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   const customer = getCustomer(customerId);
+  const data = getCustomerData(customerId);
 
   useEffect(() => {
     setIsLoading(false);
@@ -64,7 +65,7 @@ export default function FailurePage({ params }: PageProps) {
       </div>
 
       {/* Main content */}
-      <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16 relative z-10">
+      <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16 relative z-10 ">
         {/* Failure card */}
         <div className="bg-card rounded-3xl shadow-2xl border border-border p-8 md:p-12 max-w-lg w-full text-center animate-shake-in">
           {/* Icon */}
@@ -75,16 +76,14 @@ export default function FailurePage({ params }: PageProps) {
           </div>
 
           {/* Message */}
-          <h1 className="text-3xl md:text-4xl font-serif text-foreground mb-4">
-            Oh No!
+          <h1 className="text-3xl md:text-4xl text-foreground mb-4 font-lao">
+            {data?.failureMessage.title || "ໂອ້ຍ!"}
           </h1>
-          <p className="text-xl text-muted-foreground mb-2">
-            All attempts used
+          <p className="text-xl text-muted-foreground mb-2 font-lao">
+            {data?.failureMessage.subtitle || "All attempts used"}
           </p>
-          <p className="text-muted-foreground mb-8">
-            Don&apos;t worry, {customer.displayName}. This doesn&apos;t change how much I
-            love you. Maybe we need to spend more time together making new
-            memories!
+          <p className="text-muted-foreground mb-8 font-lao">
+            {data?.failureMessage.description || `Don't worry, ${customer.displayName}. This doesn't change how much I love you. Maybe we need to spend more time together making new memories!`}
           </p>
 
           {/* Cute meme-style illustration */}
@@ -111,8 +110,8 @@ export default function FailurePage({ params }: PageProps) {
             <p className="text-foreground mb-2">
               Remember...
             </p>
-            <p className="font-cursive text-xl text-primary">
-              Love isn&apos;t about perfect scores, it&apos;s about perfect moments
+            <p className="text-xl text-primary font-lao">
+              {data?.failureMessage.note || "Love isn't about perfect scores, it's about perfect moments"}
             </p>
           </div>
 

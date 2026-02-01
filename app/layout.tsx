@@ -1,12 +1,13 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Playfair_Display, Dancing_Script, Inter } from 'next/font/google'
+import { Playfair_Display, Dancing_Script, Inter, Noto_Sans_Lao } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" });
 const dancing = Dancing_Script({ subsets: ["latin"], variable: "--font-cursive" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const notoLaos = Noto_Sans_Lao({ subsets: ["lao", "latin"], variable: "--font-lao", display: 'swap' });
 
 export const metadata: Metadata = {
   title: "With Love | Valentine's Experience",
@@ -46,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} ${dancing.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} ${dancing.variable} ${notoLaos.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

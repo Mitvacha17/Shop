@@ -78,6 +78,7 @@
   --font-sans: var(--font-sans, 'Inter'), 'Inter Fallback', system-ui, sans-serif;
   --font-serif: var(--font-serif, 'Playfair Display'), 'Playfair Display Fallback', Georgia, serif;
   --font-cursive: var(--font-cursive, 'Dancing Script'), 'Dancing Script Fallback', cursive;
+  --font-lao: var(--font-lao, 'Noto Sans Lao'), 'Noto Sans Lao Fallback', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -125,5 +126,9 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  .font-lao {
+    font-family: var(--font-lao), sans-serif;
   }
 }
