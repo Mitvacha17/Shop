@@ -131,7 +131,8 @@ export default function SuccessPage({ params }: PageProps) {
             {data?.successMessage.subtitle || "Perfect Score!"}
           </p>
           <p className="text-muted-foreground mb-8">
-            {data?.successMessage.description || `You really do know me so well, ${customer.displayName}. This proves just how special our connection is.`}
+            {data?.successMessage.description ||
+              `You really do know me so well, ${customer.displayName}. This proves just how special our connection is.`}
           </p>
 
           {/* Decorative hearts */}
@@ -149,7 +150,8 @@ export default function SuccessPage({ params }: PageProps) {
           {/* Love message */}
           <div className="bg-primary/5 rounded-2xl p-6 mb-8 border border-primary/20">
             <p className="text-2xl text-primary mb-2">
-              {data?.successMessage.note || "I love you more than words can say"}
+              {data?.successMessage.note ||
+                "I love you more than words can say"}
             </p>
             <p className="text-muted-foreground text-sm">
               Thank you for being my everything

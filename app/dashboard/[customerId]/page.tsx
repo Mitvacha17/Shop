@@ -15,6 +15,7 @@ import {
 import { getCustomerData, getCustomer } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
+import "../../animations.css";
 
 interface PageProps {
   params: Promise<{ customerId: string }>;
@@ -85,7 +86,6 @@ export default function CustomerPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-linear-to-br from-background via-rose-50/50 to-lavender-50/30 relative overflow-hidden">
-
       {/* Main content */}
       <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16">
         {/* Title */}
@@ -100,10 +100,11 @@ export default function CustomerPage({ params }: PageProps) {
 
         {/* Envelope */}
         <div
-          className={`relative cursor-pointer transition-transform duration-500 ${envelopeState === "closed" && !hasOpenedEnvelope
-            ? "hover:scale-105"
-            : ""
-            }`}
+          className={`relative cursor-pointer transition-transform duration-500 ${
+            envelopeState === "closed" && !hasOpenedEnvelope
+              ? "hover:scale-105"
+              : ""
+          }`}
           onClick={handleEnvelopeClick}
         >
           {/* Envelope SVG */}
@@ -327,7 +328,10 @@ export default function CustomerPage({ params }: PageProps) {
 
                   {/* Center label */}
                   <div className="absolute inset-[35%] rounded-full bg-linear-to-br from-primary to-primary/80 flex items-center justify-center shadow-inner">
-                    <Heart className="w-6 h-6 text-primary-foreground" fill="currentColor" />
+                    <Heart
+                      className="w-6 h-6 text-primary-foreground"
+                      fill="currentColor"
+                    />
                   </div>
                 </div>
 
@@ -338,7 +342,9 @@ export default function CustomerPage({ params }: PageProps) {
 
               {/* Song info */}
               <div className="text-center space-y-1">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">Now Playing</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                  Now Playing
+                </p>
                 <h3 className="text-2xl font-serif text-foreground">
                   {customerData.song.title}
                 </h3>
@@ -355,7 +361,7 @@ export default function CustomerPage({ params }: PageProps) {
                     className="w-1.5 bg-primary/60 rounded-full animate-equalizer"
                     style={{
                       animationDelay: `${i * 0.1}s`,
-                      height: '100%',
+                      height: "100%",
                     }}
                   />
                 ))}
@@ -365,7 +371,8 @@ export default function CustomerPage({ params }: PageProps) {
             {/* Bottom section */}
             <div className="p-6 pt-0 space-y-4">
               <p className="text-muted-foreground text-sm text-center italic font-cursive">
-                {"\""}This song reminds me of you and all our beautiful moments together{"\""}
+                {'"'}This song reminds me of you and all our beautiful moments
+                together{'"'}
               </p>
 
               <a
@@ -374,7 +381,11 @@ export default function CustomerPage({ params }: PageProps) {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 w-full py-3.5 px-4 bg-[#1DB954] hover:bg-[#1ed760] text-white rounded-full font-semibold transition-all hover:scale-[1.02] hover:shadow-lg"
               >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
                   <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
                 </svg>
                 Listen on Spotify
@@ -451,76 +462,26 @@ export default function CustomerPage({ params }: PageProps) {
             <div className="flex flex-col items-center justify-center relative max-h-[85vh]">
               <div className="relative group">
                 <img
-                  src={customerData.photos.find((p) => p.id === selectedPhoto)?.src}
-                  alt={customerData.photos.find((p) => p.id === selectedPhoto)?.caption}
+                  src={
+                    customerData.photos.find((p) => p.id === selectedPhoto)?.src
+                  }
+                  alt={
+                    customerData.photos.find((p) => p.id === selectedPhoto)
+                      ?.caption
+                  }
                   className="max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
                 />
               </div>
               <p className="mt-4 text-card/80 text-sm font-medium bg-foreground/20 px-4 py-2 rounded-full backdrop-blur-sm transition-opacity">
-                {customerData.photos.find((p) => p.id === selectedPhoto)?.caption}
+                {
+                  customerData.photos.find((p) => p.id === selectedPhoto)
+                    ?.caption
+                }
               </p>
             </div>
           </div>
         </div>
       )}
-
-      <style jsx>{`
-        @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes slide-up {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes scale-in {
-          from { opacity: 0; transform: scale(0.9); }
-          to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @keyframes ping-slow {
-          0% { transform: scale(1); opacity: 0.5; }
-          75%, 100% { transform: scale(1.3); opacity: 0; }
-        }
-        @keyframes ping-slower {
-          0% { transform: scale(1); opacity: 0.3; }
-          75%, 100% { transform: scale(1.5); opacity: 0; }
-        }
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.4; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(1.05); }
-        }
-        @keyframes equalizer {
-          0%, 100% { transform: scaleY(0.3); }
-          50% { transform: scaleY(1); }
-        }
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-10px) rotate(10deg); }
-        }
-        @keyframes float-medium {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(-10deg); }
-        }
-        @keyframes float-fast {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-8px) rotate(15deg); }
-        }
-        .animate-fade-in { animation: fade-in 0.3s ease-out; }
-        .animate-slide-up { animation: slide-up 0.4s ease-out; }
-        .animate-scale-in { animation: scale-in 0.3s ease-out; }
-        .animate-spin-slow { animation: spin-slow 8s linear infinite; }
-        .animate-ping-slow { animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
-        .animate-ping-slower { animation: ping-slower 2.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
-        .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
-        .animate-equalizer { animation: equalizer 0.8s ease-in-out infinite; transform-origin: bottom; }
-        .animate-float-slow { animation: float-slow 4s ease-in-out infinite; }
-        .animate-float-medium { animation: float-medium 3s ease-in-out infinite; }
-        .animate-float-fast { animation: float-fast 2.5s ease-in-out infinite; }
-      `}</style>
     </main>
   );
 }

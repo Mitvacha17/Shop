@@ -83,7 +83,8 @@ export default function FailurePage({ params }: PageProps) {
             {data?.failureMessage.subtitle || "All attempts used"}
           </p>
           <p className="text-muted-foreground mb-8 font-lao">
-            {data?.failureMessage.description || `Don't worry, ${customer.displayName}. This doesn't change how much I love you. Maybe we need to spend more time together making new memories!`}
+            {data?.failureMessage.description ||
+              `Don't worry, ${customer.displayName}. This doesn't change how much I love you. Maybe we need to spend more time together making new memories!`}
           </p>
 
           {/* Cute meme-style illustration */}
@@ -96,7 +97,10 @@ export default function FailurePage({ params }: PageProps) {
                     <div className="w-4 h-4 rounded-full bg-foreground/20" />
                     <div className="w-4 h-4 rounded-full bg-foreground/20" />
                   </div>
-                  <div className="w-8 h-2 mx-auto rounded-full bg-foreground/20 rotate-180 mt-4" style={{ borderRadius: "0 0 50% 50%" }} />
+                  <div
+                    className="w-8 h-2 mx-auto rounded-full bg-foreground/20 rotate-180 mt-4"
+                    style={{ borderRadius: "0 0 50% 50%" }}
+                  />
                 </div>
               </div>
               <p className="font-cursive text-xl text-muted-foreground">
@@ -107,11 +111,10 @@ export default function FailurePage({ params }: PageProps) {
 
           {/* Encouraging message */}
           <div className="bg-primary/5 rounded-2xl p-6 mb-8 border border-primary/20">
-            <p className="text-foreground mb-2">
-              Remember...
-            </p>
+            <p className="text-foreground mb-2">Remember...</p>
             <p className="text-xl text-primary font-lao">
-              {data?.failureMessage.note || "Love isn't about perfect scores, it's about perfect moments"}
+              {data?.failureMessage.note ||
+                "Love isn't about perfect scores, it's about perfect moments"}
             </p>
           </div>
 
