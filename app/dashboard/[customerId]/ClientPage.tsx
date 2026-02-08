@@ -6,7 +6,6 @@ import { Heart, Music, Camera, HelpCircle, X } from "lucide-react";
 import { getCustomerData, getCustomer } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
-import "../../animations.css";
 
 interface ClientPageProps {
   customerId: string;
@@ -80,19 +79,19 @@ export default function ClientPage({ customerId }: ClientPageProps) {
       <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16">
         {/* Envelope */}
         <div
-          className={`relative cursor-pointer transition-transform duration-500 ${
+          className={`relative cursor-pointer transition-transform duration-500 will-change-transform ${
             envelopeState === "closed" && !hasOpenedEnvelope
               ? "hover:scale-105"
               : ""
           }`}
           onClick={handleEnvelopeClick}
         >
-          {/* Envelope SVG */}
+          {/* Envelope SVG - Optimized for LCP */}
           <svg
             width="280"
             height="400"
             viewBox="0 0 280 200"
-            className="drop-shadow-2xl"
+            // Removed drop-shadow-2xl to improve LCP paint time
           >
             {/* Envelope body */}
             <rect
@@ -139,7 +138,8 @@ export default function ClientPage({ customerId }: ClientPageProps) {
 
             {/* Heart seal */}
             {envelopeState === "closed" && !hasOpenedEnvelope && (
-              <g className="animate-pulse">
+              // Removed animate-pulse to prevent re-layout/paint during LCP
+              <g>
                 <circle cx="140" cy="90" r="22" fill="#c9646a" />
                 <path
                   d="M140 80 C134 74, 125 78, 125 85 C125 93, 140 103, 140 103 C140 103, 155 93, 155 85 C155 78, 146 74, 140 80"

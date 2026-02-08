@@ -52,7 +52,10 @@ export default function DashboardPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="flex items-center gap-2">
-          <Heart className="w-6 h-6 text-primary animate-pulse" fill="currentColor" />
+          <Heart
+            className="w-6 h-6 text-primary animate-pulse"
+            fill="currentColor"
+          />
           <span className="text-muted-foreground">Loading...</span>
         </div>
       </div>
@@ -144,20 +147,6 @@ export default function DashboardPage() {
             </p>
           </div>
         </div>
-
-        <style jsx>{`
-          @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-          }
-          .animate-float { animation: float ease-in-out infinite; }
-          @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-          }
-          .animate-shake { animation: shake 0.3s ease-in-out; }
-        `}</style>
       </main>
     );
   }
@@ -169,7 +158,9 @@ export default function DashboardPage() {
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Heart className="w-6 h-6 text-primary" fill="currentColor" />
-            <h1 className="text-xl font-serif text-foreground">Valentine&apos;s Hub</h1>
+            <h1 className="text-xl font-serif text-foreground">
+              Valentine&apos;s Hub
+            </h1>
           </div>
           <Button
             variant="ghost"
@@ -191,7 +182,8 @@ export default function DashboardPage() {
             Choose Your Valentine
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Select a special person to view their personalized love letter, photos, and more
+            Select a special person to view their personalized love letter,
+            photos, and more
           </p>
         </div>
 
