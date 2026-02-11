@@ -602,10 +602,40 @@
 
   body {
     @apply bg-background text-foreground;
+    /* Include Lao font in the font stack for automatic Lao character support */
+    font-family: var(--font-sans), var(--font-lao), system-ui, sans-serif;
   }
 
   .font-lao {
-    font-family: var(--font-lao), sans-serif;
+    font-family: var(--font-lao), sans-serif !important;
+  }
+
+  /* Automatically apply Lao font to elements with Lao text */
+  *:lang(lo),
+  [lang="lo"],
+  [lang="lao"] {
+    font-family: var(--font-lao), sans-serif !important;
+  }
+
+  /* Apply Lao font to common text elements that might contain Lao script */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  div,
+  li,
+  td,
+  th,
+  button,
+  label,
+  input,
+  textarea {
+    /* Use font-family that includes Lao support */
+    font-feature-settings: "kern" 1;
   }
 }
 

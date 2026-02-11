@@ -6,6 +6,7 @@ import { Heart, HeartCrack, Frown, ArrowLeft, RotateCcw } from "lucide-react";
 import { getCustomer, getCustomerData } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
+import { LaoText } from "@/components/LaoText";
 
 interface ClientFailureProps {
   customerId: string;
@@ -75,16 +76,19 @@ export default function ClientFailure({ customerId }: ClientFailureProps) {
           </div>
 
           {/* Message */}
-          <h1 className="text-3xl md:text-4xl text-foreground mb-4 font-lao">
+          <LaoText
+            as="h1"
+            className="text-3xl md:text-4xl text-foreground mb-4"
+          >
             {data?.failureMessage.title || "ໂອ້ຍ!"}
-          </h1>
-          <p className="text-xl text-muted-foreground mb-2 font-lao">
+          </LaoText>
+          <LaoText as="p" className="text-xl text-muted-foreground mb-2">
             {data?.failureMessage.subtitle || "All attempts used"}
-          </p>
-          <p className="text-muted-foreground mb-8 font-lao">
+          </LaoText>
+          <LaoText as="p" className="text-muted-foreground mb-8">
             {data?.failureMessage.description ||
               `Don't worry, ${customer.displayName}. This doesn't change how much I love you. Maybe we need to spend more time together making new memories!`}
-          </p>
+          </LaoText>
 
           {/* Cute meme-style illustration */}
           <div className="bg-muted/50 rounded-2xl p-8 mb-8 border border-border">
@@ -111,10 +115,10 @@ export default function ClientFailure({ customerId }: ClientFailureProps) {
           {/* Encouraging message */}
           <div className="bg-primary/5 rounded-2xl p-6 mb-8 border border-primary/20">
             <p className="text-foreground mb-2">Remember...</p>
-            <p className="text-xl text-primary font-lao">
+            <LaoText as="p" className="text-xl text-primary">
               {data?.failureMessage.note ||
                 "Love isn't about perfect scores, it's about perfect moments"}
-            </p>
+            </LaoText>
           </div>
 
           {/* Action buttons */}

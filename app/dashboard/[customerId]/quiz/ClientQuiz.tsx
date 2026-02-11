@@ -13,6 +13,7 @@ import {
 import { getCustomerData, getCustomer } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
+import { LaoText } from "@/components/LaoText";
 
 interface ClientQuizProps {
   customerId: string;
@@ -151,9 +152,12 @@ export default function ClientQuiz({ customerId }: ClientQuizProps) {
 
             {/* Question card */}
             <div className="bg-card rounded-2xl shadow-xl border border-border p-8 md:p-10 max-w-xl w-full">
-              <h2 className="text-xl md:text-2xl text-foreground text-center mb-8">
+              <LaoText
+                as="h2"
+                className="text-xl md:text-2xl text-foreground text-center mb-8"
+              >
                 {currentQuestionData.question}
-              </h2>
+              </LaoText>
 
               {/* Options */}
               <div className="space-y-3">
@@ -177,7 +181,7 @@ export default function ClientQuiz({ customerId }: ClientQuizProps) {
                       >
                         {String.fromCharCode(65 + index)}
                       </span>
-                      {option}
+                      <LaoText as="span">{option}</LaoText>
                     </span>
                   </button>
                 ))}
@@ -271,14 +275,19 @@ export default function ClientQuiz({ customerId }: ClientQuizProps) {
                     <p className="text-sm text-muted-foreground mb-1">
                       Question {questionIndex + 1}
                     </p>
-                    <p className="text-foreground font-medium mb-2">
+                    <LaoText
+                      as="p"
+                      className="text-foreground font-medium mb-2"
+                    >
                       {question.question}
-                    </p>
+                    </LaoText>
                     <p className="text-sm text-destructive">
                       Your answer:{" "}
-                      {userAnswer !== null
-                        ? question.options[userAnswer]
-                        : "Not answered"}
+                      <LaoText as="span">
+                        {userAnswer !== null
+                          ? question.options[userAnswer]
+                          : "Not answered"}
+                      </LaoText>
                     </p>
                   </div>
                 );

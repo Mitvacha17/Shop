@@ -6,6 +6,7 @@ import { Heart, Music, Camera, HelpCircle, X } from "lucide-react";
 import { getCustomerData, getCustomer } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
+import { LaoText } from "@/components/LaoText";
 
 interface ClientPageProps {
   customerId: string;
@@ -228,28 +229,35 @@ export default function ClientPage({ customerId }: ClientPageProps) {
               <div className="m-3 md:m-4">
                 {/* Letter content */}
                 <div className="p-5 md:p-8 space-y-6">
-                  <p className="font-cursive text-2xl text-primary">
+                  <LaoText
+                    as="p"
+                    className="font-cursive text-2xl text-primary"
+                  >
                     {customerData.letter.greeting}
-                  </p>
+                  </LaoText>
 
                   <div className="space-y-4">
                     {customerData.letter.body.map((paragraph, index) => (
-                      <p
+                      <LaoText
                         key={index}
+                        as="p"
                         className="text-foreground/90 leading-relaxed"
                       >
                         {paragraph}
-                      </p>
+                      </LaoText>
                     ))}
                   </div>
 
                   <div className="pt-4">
-                    <p className="text-foreground/80 italic">
+                    <LaoText as="p" className="text-foreground/80 italic">
                       {customerData.letter.closing}
-                    </p>
-                    <p className="font-cursive text-xl text-primary mt-2">
+                    </LaoText>
+                    <LaoText
+                      as="p"
+                      className="font-cursive text-xl text-primary mt-2"
+                    >
                       {customerData.letter.signature}
-                    </p>
+                    </LaoText>
                   </div>
 
                   {/* Heart decoration */}

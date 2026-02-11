@@ -6,6 +6,7 @@ import { Heart, PartyPopper, Sparkles, ArrowLeft } from "lucide-react";
 import { getCustomer, getCustomerData } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
+import { LaoText } from "@/components/LaoText";
 
 interface ClientSuccessProps {
   customerId: string;
@@ -123,16 +124,19 @@ export default function ClientSuccess({ customerId }: ClientSuccessProps) {
           </div>
 
           {/* Message */}
-          <h1 className="text-3xl md:text-4xl text-foreground mb-4">
+          <LaoText
+            as="h1"
+            className="text-3xl md:text-4xl text-foreground mb-4"
+          >
             {data?.successMessage.title || "You Did It!"}
-          </h1>
-          <p className="text-xl text-muted-foreground mb-2">
+          </LaoText>
+          <LaoText as="p" className="text-xl text-muted-foreground mb-2">
             {data?.successMessage.subtitle || "Perfect Score!"}
-          </p>
-          <p className="text-muted-foreground mb-8">
+          </LaoText>
+          <LaoText as="p" className="text-muted-foreground mb-8">
             {data?.successMessage.description ||
               `You really do know me so well, ${customer.displayName}. This proves just how special our connection is.`}
-          </p>
+          </LaoText>
 
           {/* Decorative hearts */}
           <div className="flex justify-center gap-2 mb-8">
@@ -148,13 +152,19 @@ export default function ClientSuccess({ customerId }: ClientSuccessProps) {
 
           {/* Love message */}
           <div className="bg-primary/5 rounded-2xl p-6 mb-8 border border-primary/20">
-            <p className="text-2xl text-primary mb-2">
-              {data?.successMessage.note ||
-                "I love you more than words can say"}
-            </p>
-            <p className="text-muted-foreground text-sm">
-              Thank you for being my everything
-            </p>
+            <LaoText as="p" className="text-2xl text-primary mb-2">
+              {data?.successMessage.note}
+            </LaoText>
+            <div className="flex justify-center">
+              {[...Array(1)].map((_, i) => (
+                <Heart
+                  key={i}
+                  className="w-6 h-6 text-primary animate-pulse"
+                  fill="currentColor"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Back button */}
