@@ -322,12 +322,7 @@ export const customerData: Record<string, CustomerData> = {
       {
         id: 2,
         question: "ລູກສາວເຈົ້າຊື່ຫຍັງ?",
-        options: [
-          "ນາງ ໄມເນັ້ງ",
-          "ນາງ ເມສະຫວັນ",
-          "ນາງ ເນັ້ງ",
-          "ນາງ ເມກສະຫວັນ",
-        ],
+        options: ["ນາງ ໄມເນັ້ງ", "ນາງ ເມສະຫວັນ", "ນາງ ເນັ້ງ", "ນາງ ເມກສະຫວັນ"],
         correctAnswer: 3,
       },
       {
@@ -345,25 +340,20 @@ export const customerData: Record<string, CustomerData> = {
       {
         id: 5,
         question: "ວັນເດືອນປີເກີດລູກຊາຍກົກເຈົ້າວັນທີ່ເທົ່າໃດ?",
-        options: [
-          "14/10/2000",
-          "17/10/2000",
-          "29/10/2000",
-          "19/10/2000",
-        ],
+        options: ["14/10/2000", "17/10/2000", "29/10/2000", "19/10/2000"],
         correctAnswer: 2,
       },
       {
         id: 6,
         question: "ວັນເກີດຜົວເຈົ້າແມ່ນວັນທີ່ເດືອນປີໃດ?",
-        options: ["16/06/1966", "1/06/1966", "29/06/1966", "19/06/1966"],
+        options: ["29/12/1998", "16/12/1998", "29/06/1998", "19/06/1998"],
         correctAnswer: 0,
       },
       {
         id: 7,
         question: "ເຮົາແຕ່ງງານກັນມາໄດ້ຈັກປີແລ້ວ?",
-        options: ["1ປີ", "2ປີ", "3ປີ", "4ປີ"],
-        correctAnswer: 2,
+        options: ["28ປີ", "27ປີ", "26ປີ", "25ປີ"],
+        correctAnswer: 0,
       },
       {
         id: 8,
@@ -374,12 +364,7 @@ export const customerData: Record<string, CustomerData> = {
       {
         id: 9,
         question: "ດີໃຈກັບຂອງຂວັນປີນີ້ບໍ່?",
-        options: [
-          "ດີໃຈ",
-          "ບໍ່ດີໃຈ",
-          "ມັກ",
-          "ບໍ່ມັກ",
-        ],
+        options: ["ດີໃຈ", "ບໍ່ດີໃຈ", "ມັກ", "ບໍ່ມັກ"],
         correctAnswer: 0,
       },
       {
@@ -393,7 +378,8 @@ export const customerData: Record<string, CustomerData> = {
       title: "Hlub Koj Os",
       subtitle: "Love You",
       description:
-        "I never doubted you for a second. You know my heart better than anyone else in this world.",
+        "Kuv hlub koj heev li. Koj yog kuv lub neej, kuv lub siab, thiab kuv txoj kev zoo siab. Txhua hnub nrog koj yog ib qho khoom plig. Koj ua rau kuv lub neej zoo nkauj thiab puv npo. " +
+        "Kuv ua tsaug rau txhua yam koj ua rau peb tsev neeg. Koj yog ib tug poj niam zoo heev thiab kuv muaj hmoo heev uas tau koj los ua kuv tus nkauj nraug.",
       note: "You are the best thing that ever happened to me",
     },
     failureMessage: {
