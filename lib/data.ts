@@ -383,11 +383,11 @@ export const customerData: Record<string, CustomerData> = {
       note: "You are the best thing that ever happened to me",
     },
     failureMessage: {
-      title: "It's Okay, Sweetheart!",
-      subtitle: "Love is the only score that matters",
+      title: "Tus Siab!",
+      subtitle: "T-T",
       description:
-        "Even if you didn't get them all right, you're still the only one for me. Let's make more memories together!",
-      note: "I love you forever and always",
+        "Ua cas koj tsis pob kuv zoo li na hahaha",
+      note: "Tsis ua cas kuv hlub koj os koj niam",
     },
   },
 };
